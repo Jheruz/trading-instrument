@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "consentApp.app"
-               BlueprintName = "consentApp"
-               ReferencedContainer = "container:consentApp.xcodeproj">
+               BuildableName = "tradingInstrument.app"
+               BlueprintName = "tradingInstrument"
+               ReferencedContainer = "container:tradingInstrument.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "consentAppTests.xctest"
-               BlueprintName = "consentAppTests"
-               ReferencedContainer = "container:consentApp.xcodeproj">
+               BuildableName = "tradingInstrumentTests.xctest"
+               BlueprintName = "tradingInstrumentTests"
+               ReferencedContainer = "container:tradingInstrument.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "consentApp.app"
-            BlueprintName = "consentApp"
-            ReferencedContainer = "container:consentApp.xcodeproj">
+            BuildableName = "tradingInstrument.app"
+            BlueprintName = "tradingInstrument"
+            ReferencedContainer = "container:tradingInstrument.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "consentApp.app"
-            BlueprintName = "consentApp"
-            ReferencedContainer = "container:consentApp.xcodeproj">
+            BuildableName = "tradingInstrument.app"
+            BlueprintName = "tradingInstrument"
+            ReferencedContainer = "container:tradingInstrument.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

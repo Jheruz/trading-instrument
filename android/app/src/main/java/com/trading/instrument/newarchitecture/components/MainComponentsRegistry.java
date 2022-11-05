@@ -1,4 +1,4 @@
-package com.consentapp.newarchitecture.components;
+package com.trading.instrument.newarchitecture.components;
 
 import com.facebook.jni.HybridData;
 import com.facebook.proguard.annotations.DoNotStrip;

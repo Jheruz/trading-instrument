@@ -1,4 +1,4 @@
-package com.consentapp.newarchitecture;
+package com.trading.instrument.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -19,9 +19,9 @@ import com.facebook.react.fabric.CoreComponentsRegistry;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.fabric.ReactNativeConfig;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.consentapp.BuildConfig;
-import com.consentapp.newarchitecture.components.MainComponentsRegistry;
-import com.consentapp.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import com.trading.instrument.BuildConfig;
+import com.trading.instrument.newarchitecture.components.MainComponentsRegistry;
+import com.trading.instrument.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 
