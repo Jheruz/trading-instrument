@@ -57,6 +57,9 @@ export default StyleSheet.create({
     paddingTop: globalSpacing * 3,
     paddingBottom: globalSpacing,
   },
+  pageVerticalSpacing: {
+    paddingVertical: globalSpacing,
+  },
   pageHorizontalSpacing: {
     paddingHorizontal: globalSpacing,
   },
