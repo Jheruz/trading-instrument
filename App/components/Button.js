@@ -13,7 +13,7 @@ function Button({ children, type, noColor, rightIcon, small, ...buttonProps }) {
   }
 
   return (
-    <TouchableOpacity {...buttonProps}>
+    <TouchableOpacity {...buttonProps} style={{ opacity: buttonProps.disabled ? 0.5 : 1 }}>
       <View style={[wrapperStyle, isCircle && small && styles.circleWrapperSmall]}>
         {children}
 
