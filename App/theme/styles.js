@@ -51,6 +51,9 @@ export default StyleSheet.create({
   alignItemsEnd: {
     alignItems: 'flex-end',
   },
+  justifyContentCenter: {
+    justifyContent: 'center',
+  },
 
   // spacing
   contentTopSpacing: {
@@ -62,6 +65,9 @@ export default StyleSheet.create({
   },
   pageHorizontalSpacing: {
     paddingHorizontal: globalSpacing,
+  },
+  pageHorizontalSpacingMedium: {
+    paddingHorizontal: globalSpacing / 2,
   },
   spacingLeft: {
     marginLeft: globalSpacing,
