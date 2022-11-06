@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { ActivityIndicator, FlatList, StyleSheet, View } from 'react-native'
 import { useQuery } from 'react-query'
+import lodashFilter from 'lodash/filter'
 
 import CaretUp from '../../assets/caret-up.png'
 import CaretDown from '../../assets/caret-down.png'
@@ -14,6 +15,7 @@ import SymbolItem from './SymbolItem'
 
 function TradingHome({ navigation }) {
   const [page, setPage] = useState(1)
+  const [searchValue, setSearch] = useState('')
   const pageLimit = 10
 
   const _fetchList = async () => await tradingApi.getSymbolList()
@@ -44,17 +46,23 @@ function TradingHome({ navigation }) {
   }
 
   const { data = [], isLoading } = useQuery('ticks', _fetchList, { removeAfterUnmount: true }) // prettier-ignore
-  const paginatedData = Array.isArray(data) ? data.slice((page - 1) * pageLimit, page * pageLimit) : [] // prettier-ignore
+  let mutatedData = JSON.parse(JSON.stringify(data))
+  if (searchValue) {
+    mutatedData = lodashFilter(mutatedData, (s) => {
+      return s.symbol.toLowerCase().includes(searchValue)
+    })
+  }
+  const paginatedData = Array.isArray(mutatedData) ? mutatedData.slice((page - 1) * pageLimit, page * pageLimit) : [] // prettier-ignore
 
   return (
     <View style={[themeStyle.flex1, themeStyle.pageVerticalSpacing]}>
       {/* Search */}
       <View style={themeStyle.pageHorizontalSpacing}>
-        <Search placeholder="Search instrument" />
+        <Search placeholder="Search Symbol" onSearch={setSearch} debounce />
       </View>
 
       {/* Loader and List */}
-      <View style={[themeStyle.flex1, themeStyle.pageVerticalSpacing]}>
+      <View style={[themeStyle.flex1, themeStyle.spacingTop]}>
         {isLoading ? (
           <View
             style={[themeStyle.flex1, themeStyle.alignItemsCenter, themeStyle.justifyContentCenter]}
@@ -81,10 +89,18 @@ function TradingHome({ navigation }) {
 
       <View style={themeStyle.pageHorizontalSpacing}>
         <Pagination
-          showing={page === 1 ? pageLimit : `${pageLimit * (page - 1)} - ${pageLimit * page}`}
-          total={data.length}
+          showing={(() => {
+            if (mutatedData.length < 10) {
+              return mutatedData.length
+            } else if (page === 1) {
+              return pageLimit
+            } else {
+              return `${pageLimit * (page - 1)} - ${pageLimit * page}`
+            }
+          })()}
+          total={mutatedData.length}
           disablePrev={page <= 1}
-          disableNext={page >= data.length / pageLimit}
+          disableNext={page >= mutatedData.length / pageLimit}
           onPrevPress={() => setPage(page - 1)}
           onNextPress={() => setPage(page + 1)}
         />
