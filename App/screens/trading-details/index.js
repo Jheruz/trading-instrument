@@ -12,7 +12,7 @@ function TradingDetails({ route }) {
   const _fetchDetails = async () => await tradingApi.getSymbolDetails(symbol)
   const _fetchDetails24hours = async () => await tradingApi.getSymbolDetails24hours(symbol)
   const { data: latestData, isLoading: latestLoading } = useQuery(`tick_${symbol}`, _fetchDetails, { refetchInterval: Config.REFRESH_RATE, removeAfterUnmount: true }) // prettier-ignore
-  const { data: last24HoursData, isLoading: last24HoursLoading } = useQuery(`tick_${symbol}_24`, _fetchDetails24hours, { refetchInterval: Config.REFRESH_RATE, removeAfterUnmount: true }) // prettier-ignore
+  const { data: last24HoursData, isLoading: last24HoursLoading } = useQuery(`tick_${symbol}_24`, _fetchDetails24hours, { removeAfterUnmount: true }) // prettier-ignore
   const isLoading = latestLoading || last24HoursLoading
   const latestColorAndIcon = Service.getColorAndIcon(latestData?.priceChange)
   const last24HoursColorAndIcon = Service.getColorAndIcon(last24HoursData?.priceChange)
