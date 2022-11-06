@@ -21,28 +21,8 @@ function TradingHome({ navigation }) {
   const _fetchList = async () => await tradingApi.getSymbolList()
   const _itemSeparator = () => <View style={styles.separator} />
   const _keyExtractor = (item, index) => index.toString()
-  const _getColorAndIcon = (data) => {
-    let color = undefined
-    let icon = undefined
-
-    if (data) {
-      const dataToNumber = Number(data)
-      const isNegative = dataToNumber < 0
-      const isPositive = dataToNumber > 0
-
-      if (isNegative) {
-        color = 'red'
-        icon = CaretDown
-      } else if (isPositive) {
-        color = 'green'
-        icon = CaretUp
-      }
-    }
-
-    return { color, icon }
-  }
   const _onSymbolPress = (symbol) => () => {
-    console.log('symbol', symbol)
+    navigation.navigate(routeList.TRADING_DETAILS, symbol)
   }
 
   const { data = [], isLoading } = useQuery('ticks', _fetchList, { removeAfterUnmount: true }) // prettier-ignore
@@ -73,12 +53,7 @@ function TradingHome({ navigation }) {
           <FlatList
             data={paginatedData}
             renderItem={({ index, item }) => (
-              <SymbolItem
-                index={index}
-                item={item}
-                getColorAndIcon={_getColorAndIcon}
-                onPress={_onSymbolPress(item)}
-              />
+              <SymbolItem index={index} item={item} onPress={_onSymbolPress(item)} />
             )}
             ItemSeparatorComponent={_itemSeparator}
             keyExtractor={_keyExtractor}

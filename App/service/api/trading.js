@@ -19,7 +19,12 @@ function getSymbolDetails(symbol) {
   return apiWrapper(endpoints.QUOTES_PRICE(symbol))
 }
 
+function getSymbolDetails24hours(symbol) {
+  return apiWrapper(endpoints.QUOTES_PRICE_24HOURS(symbol))
+}
+
 export default {
   getSymbolList,
   getSymbolDetails,
+  getSymbolDetails24hours,
 }
