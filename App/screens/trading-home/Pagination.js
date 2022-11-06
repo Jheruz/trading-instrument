@@ -11,17 +11,17 @@ function Pagination({ showing, total, disablePrev, disableNext, onPrevPress, onN
   return (
     <View style={themeStyle.flexRowCenterSpaceBetween}>
       {/* Previous */}
-      <Button onPress={onPrevPress} disabled={disablePrev}>
+      <Button onPress={onPrevPress} disabled={disablePrev} small>
         <Image source={ArrowLeft} style={styles.arrowIcon} resizeMode="contain" />
       </Button>
 
       {/* Pagination info */}
-      <Text style={themeStyle.body}>
+      <Text style={[themeStyle.body, themeStyle.pageHorizontalSpacingMedium]} adjustsFontSizeToFit>
         {showing} of {total}
       </Text>
 
       {/* Next */}
-      <Button onPress={onNextPress} disabled={disableNext}>
+      <Button onPress={onNextPress} disabled={disableNext} small>
         <Image source={ArrowRight} style={styles.arrowIcon} resizeMode="contain" />
       </Button>
     </View>

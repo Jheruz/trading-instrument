@@ -6,7 +6,13 @@ import themeStyle, { globalSpacing } from '../theme/styles'
 
 function Button({ children, type, noColor, rightIcon, small, plain, ...buttonProps }) {
   const isCircle = type === 'circle'
-  let wrapperStyle = isCircle ? styles.circleWrapper : styles.wrapper
+  let wrapperStyle = styles.wrapper
+
+  if (isCircle) {
+    wrapperStyle = styles.circleWrapper
+  } else if (small) {
+    wrapperStyle = styles.wrapperSmall
+  }
 
   if (noColor) {
     wrapperStyle = styles.button
@@ -35,6 +41,12 @@ const styles = StyleSheet.create({
     backgroundColor: themeColor.gray,
     paddingVertical: globalSpacing / 2,
     paddingHorizontal: globalSpacing * 2,
+  },
+  wrapperSmall: {
+    ...themeStyle.flexRowCenter,
+    backgroundColor: themeColor.gray,
+    paddingVertical: globalSpacing / 2,
+    paddingHorizontal: globalSpacing,
   },
   circleWrapper: {
     backgroundColor: themeColor.gray,

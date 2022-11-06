@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { ActivityIndicator, FlatList, StyleSheet, Text, View } from 'react-native'
+import { ActivityIndicator, FlatList, StyleSheet, View } from 'react-native'
 import { useQuery } from 'react-query'
 
 import CaretUp from '../../assets/caret-up.png'
@@ -81,12 +81,12 @@ function TradingHome({ navigation }) {
 
       <View style={themeStyle.pageHorizontalSpacing}>
         <Pagination
-          showing={10}
+          showing={page === 1 ? pageLimit : `${pageLimit * (page - 1)} - ${pageLimit * page}`}
           total={data.length}
           disablePrev={page <= 1}
           disableNext={page >= data.length / pageLimit}
-          onPrevPress={() => console.log('prev')}
-          onNextPress={() => console.log('next')}
+          onPrevPress={() => setPage(page - 1)}
+          onNextPress={() => setPage(page + 1)}
         />
       </View>
     </View>
