@@ -75,6 +75,9 @@ export default StyleSheet.create({
   spacingLeftMedium: {
     marginLeft: globalSpacing / 2,
   },
+  spacingLeftSmall: {
+    marginLeft: globalSpacing / 4,
+  },
   spacingBottom: {
     marginBottom: globalSpacing,
   },

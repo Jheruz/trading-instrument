@@ -4,12 +4,16 @@ import { TouchableOpacity, View, StyleSheet, Image } from 'react-native'
 import themeColor from '../theme/colors'
 import themeStyle, { globalSpacing } from '../theme/styles'
 
-function Button({ children, type, noColor, rightIcon, small, ...buttonProps }) {
+function Button({ children, type, noColor, rightIcon, small, plain, ...buttonProps }) {
   const isCircle = type === 'circle'
   let wrapperStyle = isCircle ? styles.circleWrapper : styles.wrapper
 
   if (noColor) {
     wrapperStyle = styles.button
+  }
+
+  if (plain) {
+    return <TouchableOpacity {...buttonProps}>{children}</TouchableOpacity>
   }
 
   return (
