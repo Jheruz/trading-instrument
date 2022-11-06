@@ -1,10 +1,13 @@
 import React from 'react'
 import { StyleSheet, TextInput, View } from 'react-native'
+import lodashDebounce from 'lodash/debounce'
 
-function Search(props) {
+function Search({ onSearch, ...otherProps }) {
+  const _debounceCallback = lodashDebounce((text) => onSearch(text), 1000)
+
   return (
     <View style={styles.wrapper}>
-      <TextInput {...props} style={styles.input} />
+      <TextInput {...otherProps} onChangeText={_debounceCallback} style={styles.input} />
     </View>
   )
 }
